@@ -1,0 +1,41 @@
+services:
+  api:
+    build: .
+    command: python -m uvicorn churn_app.api:app --host 0.0.0.0 --port 8000
+    environment:
+      RAW_DATA_PATH: /app/data/raw/telco_churn.csv
+      MODEL_DIR: /app/artifacts/model
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./data:/app/data
+      - ./mlruns:/app/mlruns
+    depends_on:
+      - mlflow
+
+  ui:
+    build: .
+    command: python -m churn_app.ui
+    environment:
+      MODEL_DIR: /app/artifacts/model
+      UI_PORT: 7860
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./artifacts:/app/artifacts
+    depends_on:
+      - api
+
+  mlflow:
+    image: python:3.11-slim
+    working_dir: /mlflow
+    command:
+      - sh
+      - -c
+      - pip install --no-cache-dir "mlflow>=2.18,<3.0" && mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri file:/mlflow/backend --default-artifact-root /mlflow/artifacts
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/mlflow

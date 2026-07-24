@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run main project script",
+			"type": "shell",
+			"command": "python run_project.py",
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}
