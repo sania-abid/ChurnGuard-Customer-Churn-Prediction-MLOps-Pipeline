@@ -120,7 +120,7 @@ ChurnGuard/
 
 # Architecture Diagram
 
-<img width="268" height="419" alt="image" src="https://github.com/user-attachments/assets/d3582af5-e444-4892-8d30-032b7150a8f9" />
+<img width="373" height="415" alt="image" src="https://github.com/user-attachments/assets/1953264d-72a8-4757-aaf1-87d711bfb6ca" />
 
 
 <p align="center">
