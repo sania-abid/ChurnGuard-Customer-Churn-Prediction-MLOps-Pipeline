@@ -120,7 +120,8 @@ ChurnGuard/
 
 # Architecture Diagram
 
-> Add the architecture diagram below.
+<img width="268" height="419" alt="image" src="https://github.com/user-attachments/assets/d3582af5-e444-4892-8d30-032b7150a8f9" />
+
 
 <p align="center">
   <img src="docs/architecture.png" width="900">
@@ -283,11 +284,6 @@ This project was developed for educational and portfolio purposes.
 # Author
 
 **Sania Abid**
-
-Computer Science Graduate
-
-GitHub:
-https://github.com/sania-abid
 
 LinkedIn:
 https://linkedin.com/in/saniaa-abid
